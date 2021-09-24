@@ -9,7 +9,10 @@ import (
 )
 
 func init() {
-	database.Conn.AutoMigrate(&models.Todo{})
+	database.Conn.AutoMigrate(
+		&models.Todo{},
+		&models.User{},
+	)
 }
 
 func main() {

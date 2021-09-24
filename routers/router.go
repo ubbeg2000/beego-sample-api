@@ -20,6 +20,16 @@ func init() {
 				&controllers.TodoController{},
 			),
 		),
+		beego.NSNamespace("/user",
+			beego.NSInclude(
+				&controllers.UserController{},
+			),
+		),
+		beego.NSNamespace("/auth",
+			beego.NSInclude(
+				&controllers.AuthController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

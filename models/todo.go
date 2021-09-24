@@ -40,7 +40,7 @@ func GetAllTodo(page int, limit int) (t *[]Todo, err error) {
 
 	db := database.Conn
 
-	tx := db.Offset(page * (limit - 1)).Limit(limit).Find(&retval)
+	tx := db.Offset((page - 1) * limit).Limit(limit).Find(&retval)
 
 	if tx.Error != nil {
 		return nil, tx.Error
